@@ -1,5 +1,4 @@
-# Project Title
-ChitChat
+# ChitChat
 
 ## Description
 A real-time chat application where users can create rooms and chat with friends. Users can sign in through their Google account. Built with React, Firebase, and Tailwind CSS.
