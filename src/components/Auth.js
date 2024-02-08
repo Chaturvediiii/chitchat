@@ -21,7 +21,7 @@ function Auth(props) {
         <div className="max-w-md text-white">
           <h1 className="text-2xl font-bold ">Hello there, welcome to ChitChat</h1>
           <p className="py-6">
-           Join the conversation, meet new people, and make conections in one room.
+           Join the conversation, meet new people, and make connections in one room.
           </p>
           <button onClick={signInWithGoogle} className="btn btn-primary">Login With Google</button>
         </div>
