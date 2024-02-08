@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from 'firebase/firestore';
 import { db, auth } from "../firebase-config";
 import EmojiPicker from 'emoji-picker-react';
 
 function Chat(props) {
+  const messagesEndRef = useRef();
   const { room } = props;
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesRef = collection(db, "messages");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleEmojiClick = (emojiObject) => {
     setNewMessage((prevMessage) => prevMessage + emojiObject.emoji);
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-  };
+  const scrollToBottom = () =>{
+    messagesEndRef.current?.scrollintoview({ behavior: "smooth" });
+  }
+
+ useEffect((scrollToBottom),[messages])
   
 
   useEffect(() => {
@@ -56,7 +57,7 @@ function Chat(props) {
 // ...
 
 return (
-  <div className="bg-gray-700 h-screen flex flex-col">
+  <div className="bg-gray-700 h-screen flex flex-col overflow-y-scroll no-scrollbar">
     <div className="header text-white text-center py-4">
       <h1 className="text-xl">Welcome to: {room}</h1>
     </div>

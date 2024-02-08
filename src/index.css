@@ -5,3 +5,20 @@
 .containerWrap {
     @apply container mx-auto max-w-4xl
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
