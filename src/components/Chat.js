@@ -48,7 +48,7 @@ function Chat(props) {
       name: auth.currentUser.displayName,
       avatar: auth.currentUser.photoURL,
       room: room,
-      id:auth.currentUser.uid
+      user_id:auth.currentUser.uid
     });
 
     setNewMessage("");
@@ -64,11 +64,13 @@ return (
     <div className="messages flex-1 overflow-y-auto">
       {messages.map((message) => (
         <div
-          key={message.id}
+          key={message.user_id}
           className={`chat
-          ${message.id===auth.currentUser.uid ? 'chat-start' : 'chat-end'}
+          ${message.user_id===auth.currentUser.uid ? 'chat-end' : 'chat-start'}
           `}
         >
+          {console.log(auth.currentUser.uid)}
+          {console.log(message.id)}
             <div className="chat-image avatar">
     <div className="w-10 rounded-full">
       <img alt="Profile Photo" src={message.avatar} />
