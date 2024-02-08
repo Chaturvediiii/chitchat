@@ -1,5 +1,5 @@
 import { useEffect, useState,useRef } from "react";
-import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy} from 'firebase/firestore';
 import { db, auth } from "../firebase-config";
 import EmojiPicker from 'emoji-picker-react';
 
@@ -59,7 +59,7 @@ function Chat(props) {
 return (
   <div className="bg-gray-700 h-screen flex flex-col overflow-y-scroll no-scrollbar">
     <div className="header text-white text-center py-4">
-      <h1 className="text-xl">Welcome to: {room}</h1>
+      <h1 className="text-xl text-capitalize">Welcome to: {room}</h1>
     </div>
     <div className="messages flex-1 overflow-y-auto">
       {messages.map((message) => (
